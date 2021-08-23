@@ -2,16 +2,23 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Список дел</title>
+  <title>Сервис сравнения коробок</title>
   <script src="/js/jquery-3.4.0.min.js"></script>
   <script src="/js/main.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+<div id="result-form">
+  <form>
+    <h3>Результат сравнения:</h3>
+    <br>
+    <output style="height: 25px" name="response"></output>
+  </form>
+</div>
 <div style="float: left">
   <h1 style="text-align: center">Сравнение коробок</h1>
   <div id="first-box-form" style="float: left">
-    <form>
+    <form name="first">
     <h2>Введите размеры коробки №1:</h2>
     <label>Длина коробки №1:</label>
     <input type="text" name="length" value=""><br>
@@ -22,7 +29,7 @@
     </form>
   </div>
   <div id="second-box-form" style="float: left">
-    <form>
+    <form name="second">
     <h2>Введите размеры коробки №2:</h2>
     <label>Длина коробки №2:</label>
     <input type="text" name="length" value=""><br>
@@ -37,14 +44,5 @@
   <hr>
   <button id="compare-boxes" style="font-size: large">Сравнить коробки</button>
 </div>
-<br>
-<div id="result-form">
-  <form>
-    <label>Результат сравнения:</label>
-    <output type="text" name="result" value=""></output>
-  </form>
-</div>
-
-
 </body>
 </html>

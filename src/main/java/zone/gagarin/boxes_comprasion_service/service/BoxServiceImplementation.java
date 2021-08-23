@@ -23,8 +23,9 @@ public class BoxServiceImplementation implements BoxService {
       } else {
         return "Boxes are incomparable";
       }
+    } else{
+      return "Incorrect box sizes have been entered";
     }
-    return "Incorrect box sizes have been entered";
   }
 
   public boolean isValidBoxSize(Box box) {

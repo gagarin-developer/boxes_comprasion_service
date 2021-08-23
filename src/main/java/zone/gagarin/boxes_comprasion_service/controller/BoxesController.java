@@ -12,7 +12,7 @@ import zone.gagarin.boxes_comprasion_service.dto.Box;
 import zone.gagarin.boxes_comprasion_service.service.BoxService;
 
 @RestController
-@RequestMapping("/boxes/")
+@RequestMapping("/boxes")
 public class BoxesController {
 
   private final BoxService boxService;

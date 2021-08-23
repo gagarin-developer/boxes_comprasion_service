@@ -1,25 +1,37 @@
 $(function () {
+  //Closing result form
+  $('#result-form').click(function (event) {
+    if (event.target === this) {
+      $(this).css('display', 'none');
+    }
+  });
 
   //Post sizes boxes
-  $('#save-task').click(function () {
-    var data = {};
-    var dataArray = $('#task-form form').serializeArray();
-    for (i in dataArray) {
-      data[dataArray[i]['name']] = dataArray[i]['value'];
+  $('#compare-boxes').click(function () {
+    $('#result-form').css('display', 'flex');
+    var data1 = {};
+    var data2 = {};
+    var dataArray1 = $('#first-box-form form').serializeArray();
+    var dataArray2 = $('#second-box-form form').serializeArray();
+    for (i in dataArray1) {
+      data1[dataArray1[i]['name']] = dataArray1[i]['value'];
+      data2[dataArray2[i]['name']] = dataArray2[i]['value'];
     }
+      var data3 = {'first':data1,'second':data2};
+
     $.ajax({
-      type: "POST",
       url: '/boxes/compare',
-      data: JSON.stringify(data),
+      type: "POST",
+      dataType: "text",
+      data: JSON.stringify(data3),
       contentType: 'application/json',
-      dataType: "json",
       success: function (response) {
-        $('#boxes-form').css('display', 'none');
-        location.reload();
+        $('#result-form form output').html(response);
+
       },
-      error: function (response) {
-        if (response.status === 400) {
-          alert('Ошибка, пустое пустое тело запроса');
+      error: function (error) {
+        if (error.status === 400 || error.status === 500) {
+          alert('Ошибка введенных данных');
         }
       }
     });

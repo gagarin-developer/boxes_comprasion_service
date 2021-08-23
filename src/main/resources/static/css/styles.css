@@ -2,19 +2,6 @@
     font-family: JetBrains Mono, Arial, Serif;
 }
 
-#result-form {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: #88888878;
-}
-
 #first-box-form form {
     background-color: white;
     border: 1px solid #333;
@@ -29,18 +16,41 @@
     padding: 20px;
 }
 
-#task-form h2 {
-    margin-top: 0;
-}
-
-#task-form label {
+#button-form label {
     display: block;
 }
 
-#task-form button {
+#button-form button {
     align-items: center;
 }
+#result-form {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #88888878;
+}
 
-#task-form form > * {
+#result-form form {
+    background-color: white;
+    border: 1px solid #333;
+    width: 450px;
+    padding: 20px;
+}
+
+#result-form h3 {
+    margin-top: 0;
+    text-align: center;
+}
+#result-form output {
+    text-align: center;
+}
+
+#result-form form > * {
     margin-bottom: 5px;
 }
