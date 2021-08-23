@@ -1,9 +1,11 @@
 package zone.gagarin.boxes_comprasion_service.controller;
 
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +25,9 @@ public class BoxesController {
     this.boxService = boxService;
   }
 
-  @PostMapping(value = "/compare", consumes = "application/json", produces = "application/json")
-  public ResponseEntity<String> compareBoxes(@RequestBody Map<String, Box> boxes) {
-    String response = boxService.compareBoxes(boxes.get("first"), boxes.get("second"));
-    return new ResponseEntity<>(response,HttpStatus.OK);
+  @PostMapping(value = "/compare", consumes = "application/json")
+  public ResponseEntity<String> compareBoxes(@RequestBody @NotNull Map<String, Box> boxes) {
+      String response = boxService.compareBoxes(boxes.get("first"), boxes.get("second"));
+      return new ResponseEntity<>(response,HttpStatus.OK);
   }
 }
